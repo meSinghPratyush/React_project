@@ -51,9 +51,7 @@ export default function WeatherApp() {
   };
 
   const handleRefresh = () => {
-    if (lastCity) {
-      fetchWeather(lastCity);
-    }
+    if (lastCity) fetchWeather(lastCity);
   };
 
   const removeHistoryItem = (item) => {
@@ -93,9 +91,9 @@ export default function WeatherApp() {
       <div
         className={`relative ${
           isDarkMode ? "bg-white/10 text-white" : "bg-gray-800 text-white"
-        } backdrop-blur-lg rounded-3xl p-8 w-[480px] text-center shadow-xl transition-colors duration-500`}
+        } backdrop-blur-lg rounded-3xl p-8 w-[520px] text-center shadow-xl transition-colors duration-500`}
       >
-        {/* Top Row - Refresh + Toggle Theme */}
+        {/* Top Row - Refresh (left) + Toggle Theme (right) */}
         <div className="flex justify-between items-center mb-4">
           <button
             onClick={handleRefresh}
@@ -120,7 +118,7 @@ export default function WeatherApp() {
 
         {/* Search bar */}
         <div
-          className={`flex items-center gap-2 px-4 py-2 rounded-full mb-2 ${
+          className={`flex items-center gap-3 px-5 py-3 rounded-full mb-3 ${
             isDarkMode ? "bg-white/20" : "bg-gray-500"
           }`}
         >
@@ -136,9 +134,12 @@ export default function WeatherApp() {
             onChange={(e) => setCity(e.target.value)}
             onKeyDown={handleKeyPress}
           />
-          <button onClick={fetchWeather}>
+          <button
+            onClick={() => fetchWeather(city)}
+            className="p-1 hover:scale-110 transition"
+          >
             <FiSearch
-              size={22}
+              size={24}
               className={isDarkMode ? "text-white" : "text-gray-700"}
             />
           </button>
@@ -226,4 +227,3 @@ export default function WeatherApp() {
     </div>
   );
 }
-//completed...
