@@ -33,3 +33,7 @@ Icons & Animation: React Icons, Framer Motion
 Weather Data: OpenWeatherMap API
 
 HTTP Client: Axios
+
+# Weather app URL:
+
+[URL- Weather App](https://stellar-mochi-ef4381.netlify.app/)
